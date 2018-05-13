@@ -1,0 +1,2 @@
+module TeacherCohortsHelper
+end

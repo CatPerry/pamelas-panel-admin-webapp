@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Teacher Cohorts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Cohort</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teacher_cohorts.each do |teacher_cohort| %>
+      <tr>
+        <td><%= teacher_cohort.teacher_id %></td>
+        <td><%= teacher_cohort.cohort_id %></td>
+        <td><%= link_to 'Show', teacher_cohort %></td>
+        <td><%= link_to 'Edit', edit_teacher_cohort_path(teacher_cohort) %></td>
+        <td><%= link_to 'Destroy', teacher_cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teacher Cohort', new_teacher_cohort_path %>

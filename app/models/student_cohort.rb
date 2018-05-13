@@ -1,0 +1,2 @@
+class StudentCohort < ApplicationRecord
+end
