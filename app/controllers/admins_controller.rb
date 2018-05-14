@@ -15,6 +15,13 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
+    @course = Course.new
+    @cohort = Cohort.new
+    @student = Student.new
+    @teacher = Teacher.new
+    @student_cohort = Student.new
+    @teacher_cohort = Teacher.new
+    
   end
 
   # GET /admins/1/edit
@@ -65,6 +72,12 @@ class AdminsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_admin
       @admin = Admin.find(params[:id])
+      @course = Course.find(params[:id])
+      @cohort = Cohort.find(params[:id])
+      @student = Student.find(params[:id])
+      @teacher = Teacher.find(params[:id])
+      @student_cohort = Student_Cohort.find(params[:id])
+      @teacher_cohort = Teacher_Cohort.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
