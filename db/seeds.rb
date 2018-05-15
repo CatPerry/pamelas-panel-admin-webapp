@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 prng = Random.new
 randDeg = ["Phd", "Masters", "Bachelors"]
+# randFirstNames = ["Fritz", "Christina","Jermaine", "Magaly", "Sylvester", "Erich", "Brendan", "Ned", "Gordon", "Ermelinda", "Doloris", "Elizabeth", "Eden", "Susann", "Margarita", "Elinor", "Wendolyn", "Mollie","Barney", "Hannelore", "Sarina", "Avery", "Claire", "Storm", "Burma", "Laurel", "Hong", "Caroyln", "Rhoda", "Lenny", "Georgie", "Kess", "Hass", "Jeff", "Walter","Clinton", "Roxanna", "Alycia", "Michal", "Shay", "Isabell", "Nadia", "Lahoma", "Jocelyn", "Jarrod", "Stefan", "Jax", "Harry", "Dallas", "Emil"]  
+
+# randLastNames = ["Carroway", "Dare", 
+# "Coello","Smothers", "Minnich", "Kreitzer", "Burton", "Tuthill", "Latson", "Chipps", "Nygard", "Rachal", "Costas", "Ellingson", "Pillot", "Lester", "Nordahl", "Holtman", "Start", "Hatley", "Neubert", "Brobst", "Pfister", "Wedeking", "Hash", "Lukas", "Roth", "Keasey", "Doyon", "Tarbell", "Perone", "Mayville", "Maynard", "Vanhook", "Polhemus", "Coomer", "Youngren", "Bierce","Goodpaster", "Barriga", "Hector", "Cheesman", "Soja", "Tolle", "Antunez","Haye", "Bailes", "Fonner", "Vore", "Myron"]
 
 1.times do |admin|
   Admin.create!(
