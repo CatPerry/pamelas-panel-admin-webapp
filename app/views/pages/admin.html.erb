@@ -1,21 +1,27 @@
 <h1>Admin Homepage</h1>
 <p>Find me in app/views/pages/admin.html.erb</p>
 
+
 <h1>Teachers</h1>
 <% @teachers.each do |teacher|%>
-<%= "#{teacher.image}" %><br>
-<%= teacher.first_name %><br>
-<%= teacher.last_name %><br>
-<%= teacher.age %><br>
-<%= teacher.salary %><br>
-<%= teacher.education %><br>
+<p>
+<%= image_tag teacher.image %><br>
+<%= "First Name: #{teacher.first_name}" %><br>
+<%= "Last Name: #{teacher.last_name}" %><br>
+<%= "Age: #{teacher.age}" %><br>
+<%= "Salary: #{teacher.salary}" %><br>
+<%= "Education: #{teacher.education}" %><br>
+</p>
 <% end %>
 
 <h1>Students</h1>
 <% @students.each do |student|%>
-<%= "#{student.image}" %><br>
-<%= student.first_name %><br>
-<%= student.last_name %><br>
-<%= student.age %><br>
-<%= student.education %><br>
+<p>
+<%= image_tag student.image %><br>
+<%= "First Name: #{student.first_name}" %><br>
+<%= "Last Name: #{student.last_name}" %><br>
+<%= "Age: #{student.age}" %><br>
+<%= "Education: #{student.education}" %><br>
+</p>
 <% end %>
+
