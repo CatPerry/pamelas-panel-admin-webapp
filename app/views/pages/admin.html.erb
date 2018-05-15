@@ -5,7 +5,7 @@
 <h1>Teachers</h1>
 <% @teachers.each do |teacher|%>
 <p>
-<%= image_tag teacher.image %><br>
+<%= image_tag teacher.image unless teacher.image.nil? %><br>
 <%= "First Name: #{teacher.first_name}" %><br>
 <%= "Last Name: #{teacher.last_name}" %><br>
 <%= "Age: #{teacher.age}" %><br>

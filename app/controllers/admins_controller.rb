@@ -51,6 +51,40 @@ class AdminsController < ApplicationController
     end
   end
 
+#   # POST /teachers
+#   # POST /teachers.json
+#   def create
+#     @teacher = Teacher.new(params.require(:teacher).permit(:first_name, :last_name, :age, :salary, :education, :image))
+# )
+#     respond_to do |format|
+#       ##I'm going to redirect later on to a an ADMIN TEACHERS SUBPAGE WHEN I MAKE IT. See vid 047, to modify teachers_path. and check out the deep dive in that section. 
+#       if @teacher.save
+#         format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
+#         format.json { render :show, status: :created, location: @teacher }
+#       else
+#         format.html { render :new }
+#         format.json { render json: @teacher.errors, status: :unprocessable_entity }
+#       end
+#     end
+#   end
+
+#   # POST /students
+#   # POST /students.json
+#   def create
+#     @student = Student.new(params.require(:student).permit(:first_name, :last_name, :age, :education, :image))
+# )
+
+#     respond_to do |format|
+#       if @student.save
+#         format.html { redirect_to @student, notice: 'Student was successfully created.' }
+#         format.json { render :show, status: :created, location: @student }
+#       else
+#         format.html { render :new }
+#         format.json { render json: @student.errors, status: :unprocessable_entity }
+#       end
+#     end
+#   end
+
   # PATCH/PUT /admins/1
   # PATCH/PUT /admins/1.json
   def update
