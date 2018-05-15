@@ -5,6 +5,13 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
+    @teachers = Teacher.all
+    @students = Student.all
+    @couses = Course.all
+    @cohorts = Cohort.all
+    @student_cohorts = StudentCohort.all
+    @teacher_cohorts = TeacherCohort.all
+    @admins = Admin.all
   end
 
   # GET /admins/1

@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    #what do I need for a search function?
   end
 
   def admin
@@ -20,6 +21,8 @@ class PagesController < ApplicationController
   end
 
   def teacher
+    @students = Student.all
+    @couses = Course.all
   end
 
   def student
