@@ -25,3 +25,66 @@
 </p>
 <% end %>
 
+<p>
+  <h1>Add New Teachers</h1>
+  <%= form_with(model: @teacher, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :age %>
+      <%= form.number_field :age %>
+    </div>
+
+    <div class="field">
+      <%= form.label :salary %>
+      <%= form.number_field :salary %>
+    </div>
+
+    <div class="field">
+      <%= form.label :education %>
+      <%= form.text_field :education %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</p>
+
+
+<p>
+  <h1>Add New Students</h1>
+  <%= form_with(model: @student, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :age %>
+      <%= form.number_field :age %>
+    </div>
+
+    <div class="field">
+      <%= form.label :education %>
+      <%= form.text_field :education %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</p>
