@@ -10,18 +10,13 @@
 <h1>Teachers</h1>
 <% @teachers.each do |teacher|%>
   <p>
-  <%= image_tag teacher.image unless teacher.image.nil? %><br>
-  <h2><%= link_to "Name: #{teacher.first_name} #{teacher.last_name}", teacher %><br></h2>
-  <%= "Age: #{teacher.age}" %><br>
-  <%= "Salary: #{teacher.salary}" %><br>
-  <%= "Education: #{teacher.education}" %><br>
+    <%= image_tag teacher.image unless teacher.image.nil? %><br>
+    <h2><%= link_to "Name: #{teacher.first_name} #{teacher.last_name}", teacher %><br></h2>
+    <%= "Age: #{teacher.age}" %><br>
+    <%= "Salary: #{teacher.salary}" %><br>
+    <%= "Education: #{teacher.education}" %><br>
   </p>
-
-
-  <%= link_to 'Edit', edit_teacher_path(teacher) %>
-  <%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </tr>
-  <% end %>
+<% end %>
 
   <br>
 
