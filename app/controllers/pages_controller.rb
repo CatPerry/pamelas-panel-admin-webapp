@@ -1,13 +1,16 @@
 class PagesController < ApplicationController
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  
   def home
     #what do I need for a search function?
   end
 
   def admin
+    @courses = Course.all
+    @cohorts = Cohort.all
     @teachers = Teacher.all
     @students = Student.all
-    @couses = Course.all
-    @cohorts = Cohort.all
     @student_cohorts = StudentCohort.all
     @teacher_cohorts = TeacherCohort.all
     @admins = Admin.all
@@ -21,10 +24,10 @@ class PagesController < ApplicationController
   end
 
   def teacher
-    @students = Student.all
-    @couses = Course.all
+    @teachers = Teacher.all
   end
 
   def student
+    @students = Student.all
   end
 end

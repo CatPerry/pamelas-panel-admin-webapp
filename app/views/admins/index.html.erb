@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
+<h1>MANAGE</h1>
+<%= link_to 'Teachers', teachers_path %>
+<%= link_to 'Students', students_path %>
 
 <h1>Admins</h1>
 
-MAKE THIS ADMIN LOGIN PAGE
+MAKE THIS ADMIN LOGIN PAGE?
+
+OR ADMIN HOMEPAGE?
 
 <table>
   <thead>
@@ -29,3 +34,10 @@ MAKE THIS ADMIN LOGIN PAGE
 <br>
 
 <%= link_to 'New Admin', new_admin_path %>
+
+
+<h1>Create/Edit Teachers</h1>
+<%= link_to 'New Teacher', new_teacher_path %>
+
+<h1>Create/Edit Students</h1>
+<%= link_to 'New Student', new_student_path %>

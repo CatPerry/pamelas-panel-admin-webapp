@@ -1,32 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Students</h1>
+<% @students.each do |student|%>
+  <p>
+  <%= image_tag student.image %><br>
+  <%= "First Name: #{student.first_name}" %><br>
+  <%= "Last Name: #{student.last_name}" %><br>
+  <%= "Age: #{student.age}" %><br>
+  <%= "Education: #{student.education}" %><br>
+  </p>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Age</th>
-      <th>Education</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.first_name %></td>
-        <td><%= student.last_name %></td>
-        <td><%= student.age %></td>
-        <td><%= student.education %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= link_to 'Show', student %>
+  <%= link_to 'Edit', edit_student_path(student) %>
+  <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %> 
+<% end %>
 
 <br>
 
