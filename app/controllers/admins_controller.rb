@@ -19,6 +19,10 @@ class AdminsController < ApplicationController
   def show
     @teachers = Teacher.all
     @students = Student.all
+    @couses = Course.all
+    @cohorts = Cohort.all
+    @student_cohorts = StudentCohort.all
+    @teacher_cohorts = TeacherCohort.all
   end
 
   # GET /admins/new

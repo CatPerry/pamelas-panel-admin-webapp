@@ -1,3 +1,26 @@
 <h1>Admin Homepage</h1>
 <p>Find me in app/views/pages/admin.html.erb</p>
 
+
+LOGIN PAGE
+
+ADD LOGIN FORM HERE
+
+THIS ALONE MAY BREAKING YOUR SITE wihtout the right session setup
+
+<a href="/">Home</a>
+        <% if session[:user_id] %>
+          <a href="/posts"/>Posts</a>
+          <a href="/sign-out">Sign Out</a>
+        <% else %>
+          <a href="/sign-in" />Sign In</a> <a href="/sign-up" />Sign Up</a>
+        <% end %>
+
+        <% flash.keys.each do |type| %>
+          <div class="flash <%= type %>" data-timeout="5000">
+          <%= flash[type] %>
+          <a class="close-button" href="#">x</a>
+          </div>
+        <% end %>
+
+      <%#= yield %>

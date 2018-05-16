@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
+<h1>MANAGE</h1>
+<%= link_to 'Teachers', teachers_path %>
+<%= link_to 'Students', students_path %>
+<%= link_to 'Courses', courses_path %>
+<%= link_to 'Cohorts', cohorts_path %>
+<%= link_to 'Home', admins_path %>
+
 
 <h1>Students</h1>
 <% @students.each do |student|%>
   <p>
   <%= image_tag student.image %><br>
-  <%= "First Name: #{student.first_name}" %><br>
-  <%= "Last Name: #{student.last_name}" %><br>
+  <h2><%= link_to "Name: #{student.first_name} #{student.last_name}", student %><br></h2>
   <%= "Age: #{student.age}" %><br>
   <%= "Education: #{student.education}" %><br>
   </p>
 
-  <%= link_to 'Show', student %>
   <%= link_to 'Edit', edit_student_path(student) %>
   <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %> 
 <% end %>

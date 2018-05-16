@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
-<h1>MANAGE</h1>
+<h1>ADMINS PORTAL</h1>
+
+
+<h1>Manage</h1>
 <%= link_to 'Teachers', teachers_path %>
 <%= link_to 'Students', students_path %>
+<%= link_to 'Courses', courses_path %>
+<%= link_to 'Cohorts', cohorts_path %>
+<%= link_to 'Home', admins_path %>
 
-<h1>Admins</h1>
-
-MAKE THIS ADMIN LOGIN PAGE?
-
-OR ADMIN HOMEPAGE?
+<%#="Welcome #{@adminSession.username}"%>
 
 <table>
   <thead>
@@ -34,10 +36,3 @@ OR ADMIN HOMEPAGE?
 <br>
 
 <%= link_to 'New Admin', new_admin_path %>
-
-
-<h1>Create/Edit Teachers</h1>
-<%= link_to 'New Teacher', new_teacher_path %>
-
-<h1>Create/Edit Students</h1>
-<%= link_to 'New Student', new_student_path %>
