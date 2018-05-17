@@ -10,7 +10,7 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
-    @teacher = Teacher.find(params[:id])
+    @teacher = Teacher.friendly.find(params[:id])
 
   end
 
@@ -66,11 +66,18 @@ class TeachersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_teacher
-      @teacher = Teacher.find(params[:id])
+      @teacher = Teacher.friendly.find(params[:id])
+    end
+
+    def teacher_passport
+      "T" + rand(10000...199999).to_s
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:first_name, :last_name, :age, :salary, :education)
+      params.require(:teacher).permit(:first_name, :last_name, :age, :salary, :education, :image, :teacher_passport)
     end
+
+    
+
 end

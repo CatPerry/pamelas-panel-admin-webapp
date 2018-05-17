@@ -10,10 +10,11 @@
 <h1>Students</h1>
 <% @students.each do |student|%>
   <p>
-  <%= image_tag student.image %><br>
+  <%= image_tag student.image unless student.image.nil? %><br>
   <h2><%= link_to "Name: #{student.first_name} #{student.last_name}", student %><br></h2>
   <%= "Age: #{student.age}" %><br>
   <%= "Education: #{student.education}" %><br>
+  <%= "Student Passport: #{student.student_passport}" %><br>
   </p>
 
   

@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    @student = Student.friendly.find(params[:id])
   end
 
   # GET /students/new
@@ -64,11 +65,15 @@ class StudentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
-      @student = Student.find(params[:id])
+      @student = Student.friendly.find(params[:id])
+    end
+
+    def student_passport
+      "S" + rand(10000...199999).to_s
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :age, :education)
+      params.require(:student).permit(:first_name, :last_name, :age, :education, :image, :student_passport)
     end
 end

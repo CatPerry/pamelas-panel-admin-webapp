@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= @student.image %>
+</p>
+
+<p>
   <strong>First name:</strong>
   <%= @student.first_name %>
 </p>
@@ -19,6 +23,7 @@
   <strong>Education:</strong>
   <%= @student.education %>
 </p>
+
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Delete', @student, method: :delete, data: { confirm: 'Are you sure?' } %> |
