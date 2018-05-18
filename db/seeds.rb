@@ -10,7 +10,7 @@ def teacher_passport
 end
 
 def student_passport
-  "T" + rand(10000...199999).to_s
+  "S" + rand(10000...199999).to_s
 end
 
 prng = Random.new
@@ -21,9 +21,9 @@ randFirstNames = %w(Dulce Melissa Elba Antonietta Faith Jeromy Francisco Selene 
 
 randLastNames = %w(Denny Rhea Aldo Emory Dante Leonida Kaylene Gaylord Isobel Aura Galen Florida Ladawn Mickey Tom Virgina Donette Kina Carlee James Timika Emeline Micha Berenice Emery Cliff Shalon Gene Elvina Margeret)
 
-# def teacher_passport
-#   p `T#{rand(10000...19999)}`
-# end
+courseNames = %w(Software-Engineering Chemistry Molecular-Biology Physics Singing Break-Dancing)
+
+cohortNames = %w(Edge-Case SEI-April-5 Trekkies Uppities Neer-Do-Wells)
 
 1.times do |admin|
   Admin.create(
@@ -55,7 +55,8 @@ puts "You just created 10 teachers"
     age: prng.rand(15..35),
     education: "#{randDegwHS.sample}",
     image: "http://placehold.it/200x200",
-    student_passport: "#{student_passport}"
+    student_passport: "#{student_passport}",
+    cohort: "#{cohortNames.sample}"
   )
 end
 
@@ -63,9 +64,20 @@ puts "You just created 10 students"
 
 5.times do |course|
   Course.create(
-    name: "#{course}",
+    name: "#{courseNames.sample}",
     hours: prng.rand(5..20),
   )
 end
 
 puts "You just created 5 courses"
+
+5.times do |cohort|
+  Cohort.create(
+    name: "#{cohort.sample}",
+    start_date: prng.rand(5..20),
+    end_date: prng.rand(5..20),
+    course_id: courseName.id.rand
+  )
+end
+
+puts "You just created 5 cohorts"

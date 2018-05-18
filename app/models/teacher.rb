@@ -3,7 +3,7 @@ class Teacher < ApplicationRecord
   has_many :students, through: :cohorts
 
   extend FriendlyId
-  friendly_id :last_name, use: :slugged
+  friendly_id :first_name, use: :slugged
 
 
   validates :age, numericality: {

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= @student.image %>
+  <%= image_tag @student.image unless @student.image.nil? %><br>
 </p>
 
 <p>
