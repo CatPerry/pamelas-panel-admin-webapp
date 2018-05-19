@@ -14,5 +14,15 @@
   
 
  <%= yield %>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<% if  current_teacher %>
+<%= link_to "logout", destroy_teacher_session_path, method: :delete%>
+<% else %>
+  <%= link_to "login", new_teacher_session_path%>
+  <%= link_to "register", new_teacher_registration_path%>
+<% end%>
+
 </body>
 </html>

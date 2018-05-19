@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  devise_for :teachers, path: '', path_names: {sign_in: 'teacher-login', sign_out: 'teacher-logout', sign_up: "teacher-register"}
+  devise_for :students, path: '', path_names: {sign_in: 'student-login', sign_out: 'student-logout', sign_up: "student-register"}
+  devise_for :admins, path: '', path_names: {sign_in: 'admin-login', sign_out: 'admin-logout', sign_up: "admin-register"}
+
   get 'admin-portal', to: 'pages#admin'
   get 'teacher-portal', to: 'pages#teacher'
   get 'student-portal', to: 'pages#student'
@@ -16,40 +20,5 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :passport_num)
-  end
-
-  def student
-    current_user.includes? :student_passport
-    student = true
-  end
-
-  def teacher
-    current_user.includes? :teacher_passport
-    teacher = true
-  end
-
-  def admin
-    current_user.includes? :admin_passport
-    admin = true
-  end
-  
-
-  constraints Clearance::Constraints::SignedIn.new { |user| user.admin? } do
-    get "/admin-login" => "admin/dashboards#show"
-  end
-
-  constraints Clearance::Constraints::SignedIn.new { |user| user.teacher? } do
-    get "/teacher-login" => "mains#teacher"
-    resources :mains, only: :teacher
-  end
-
-  constraints Clearance::Constraints::SignedIn.new { |user| user.student? } do
-    get "/student-login" => "mains#student"
-    resources :mains, only: :student
-  end
-
 
 end
