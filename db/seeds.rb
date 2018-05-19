@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 def teacher_passport
   "T" + rand(10000...199999).to_s
 end
@@ -24,6 +17,15 @@ randLastNames = %w(Denny Rhea Aldo Emory Dante Leonida Kaylene Gaylord Isobel Au
 courseNames = %w(Software-Engineering Chemistry Molecular-Biology Physics Singing Break-Dancing)
 
 cohortNames = %w(Edge-Case SEI-April-5 Trekkies Uppities Neer-Do-Wells)
+
+def randoTimeNow
+t = (Time.now - rand(15552000)).strftime('%m/%d/%Y %I:%M:%S %p')
+end
+
+def randoTimeLater
+t = (Time.now + rand(15552000)).strftime('%m/%d/%Y %I:%M:%S %p')
+end 
+
 
 1.times do |admin|
   Admin.create(
@@ -56,13 +58,12 @@ puts "You just created 10 teachers"
     education: "#{randDegwHS.sample}",
     image: "http://placehold.it/200x200",
     student_passport: "#{student_passport}",
-    cohort: "#{cohortNames.sample}"
   )
 end
 
 puts "You just created 10 students"
 
-5.times do |course|
+10.times do |course|
   Course.create(
     name: "#{courseNames.sample}",
     hours: prng.rand(5..20),
@@ -71,13 +72,13 @@ end
 
 puts "You just created 5 courses"
 
-5.times do |cohort|
+7.times do |cohort|
   Cohort.create(
-    name: "#{cohort.sample}",
-    start_date: prng.rand(5..20),
-    end_date: prng.rand(5..20),
-    course_id: courseName.id.rand
+    name: "#{cohortNames.sample}",
+    start_date: "#{randoTimeNow}",
+    end_date: "#{randoTimeLater}",
+    course_id: "#{courseNames.sample}",
   )
 end
 
-puts "You just created 5 cohorts"
+puts "You just created 7 cohorts"

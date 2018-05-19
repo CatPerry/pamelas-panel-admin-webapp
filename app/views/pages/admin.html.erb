@@ -9,12 +9,6 @@ ADD LOGIN FORM HERE
 THIS ALONE MAY BREAKING YOUR SITE wihtout the right session setup
 
 <a href="/">Home</a>
-  <% if signed_in? %>
-  Signed in as: <%= current_user.email %>
-  <%= button_to 'Sign out', sign_out_path, method: :delete %>
-  <% else %>
-  <%= link_to 'Sign in', sign_in_path %>
-  <% end %>
 
   <div id="flash">
   <% flash.each do |key, value| %>
@@ -22,11 +16,6 @@ THIS ALONE MAY BREAKING YOUR SITE wihtout the right session setup
   <% end %>
   </div>
 
-
-
-ADD THIS TO THE signed_in_admin.html.erb
-
-  <%= link_to 'Admin Portal', admins_path %>
 
 
       <%#= yield %>
