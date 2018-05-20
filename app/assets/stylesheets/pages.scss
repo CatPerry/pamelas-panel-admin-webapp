@@ -1,6 +1,38 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  background-color: rgb(83, 146, 201)
+.col-sm {
+  margin: 20px;
+  padding: 40px;
+  background-color: #9EEAC7;
+  text-align: center;
+  font-size: 1.5em;
+  color: black;
+  border-radius: 3px;
+  text-decoration-style: none;
 }
+section {
+  border-radius: 5px;
+  background-color: #CDF8A7;
+}
+.nav-link a {
+  display: inline-block;
+}
+main {
+  margin: 40px;
+  padding: 40px;
+  background-color: #CDF8A7;
+  border-radius: 3px;
+  width: 45%;
+  display: block;
+  float: left;
+}
+aside {
+  display: block;
+  float: right;
+  width: 50%;
+  margin: 40px;
+  padding: 40px;
+  // animation: glideIn 
+}
+

@@ -1,6 +1,38 @@
-<h1>Teacher's portal for login and viewing course info</h1>
-<p>Find me in app/views/pages/teacher.html.erb</p>
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title><%= @page_title %></title>
+    <%# <%= stylesheet_link_tag 'application', media: 'all' %> %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tag %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= link_to "logout", destroy_teacher_session_path, method: :delete%>
+  </head>
+  <body>
+    <h1>Teacher's portal for login and viewing course info</h1>
+    <p>Find me in app/views/pages/teacher.html.erb</p>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= link_to "logout", destroy_teacher_session_path, method: :delete%>
+
+
+    <div class="row">
+      <div class="col-12 col-md-8 left-big">.col-12 .col-md-8</div>
+      <div class="col-6 col-md-4 right-small">.col-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+      <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+      <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+      <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns are always 50% wide, on mobile and desktop -->
+    <div class="row">
+      <div class="col-6">.col-6</div>
+      <div class="col-6">.col-6</div>
+    </div>
+  </body>
+</html>

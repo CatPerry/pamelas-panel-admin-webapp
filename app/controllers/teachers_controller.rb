@@ -1,10 +1,12 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  before_action :set_title
 
   # GET /teachers
   # GET /teachers.json
   def index
     @teachers = Teacher.all
+    @page_title = "Teachers Page"
   end
 
   # GET /teachers/1
