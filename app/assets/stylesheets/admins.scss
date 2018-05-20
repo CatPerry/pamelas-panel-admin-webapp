@@ -1,9 +1,6 @@
 // Place all the styles related to the Admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  font-size: .875rem;
-}
 
 .feather {
   width: 16px;
@@ -71,6 +68,7 @@ body {
 
 [role="main"] {
   padding-top: 48px; /* Space for fixed navbar */
+  width: 100%;
 }
 
 /*

@@ -13,7 +13,6 @@ class TeachersController < ApplicationController
   # GET /teachers/1.json
   def show
     @teacher = Teacher.friendly.find(params[:id])
-
   end
 
   # GET /teachers/new

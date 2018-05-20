@@ -1,40 +1,44 @@
-<p id="notice"><%= notice %></p>
+<main class="teahcers">
 
-<p>
-  <%= image_tag @teacher.image unless @teacher.image.nil? %><br>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @teacher.first_name %>
-</p>
+  <%= react_component("TeachersShowMe") %>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @teacher.last_name %>
-</p>
+  <p>
+    <%= image_tag @teacher.image unless @teacher.image.nil? %><br>
+  </p>
+  <p>
+    <strong>First name:</strong>
+    <%= @teacher.first_name %>
+  </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @teacher.age %>
-</p>
+  <p>
+    <strong>Last name:</strong>
+    <%= @teacher.last_name %>
+  </p>
 
-<p>
-  <strong>Salary:</strong>
-  <%= @teacher.salary %>
-</p>
+  <p>
+    <strong>Age:</strong>
+    <%= @teacher.age %>
+  </p>
 
-<p>
-  <strong>Education:</strong>
-  <%= @teacher.education %>
-</p>
+  <p>
+    <strong>Salary:</strong>
+    <%= @teacher.salary %>
+  </p>
 
-<p>
-  <strong>Teacher Passport:</strong>
-  <%= @teacher.teacher_passport %>
-</p>
+  <p>
+    <strong>Education:</strong>
+    <%= @teacher.education %>
+  </p>
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Delete', @teacher, method: :delete, data: { confirm: 'Are you sure?' } %> 
- |
-<%= link_to 'Back', teachers_path %>
+  <p>
+    <strong>Teacher Passport:</strong>
+    <%= @teacher.teacher_passport %>
+  </p>
+
+  <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+  <%= link_to 'Delete', @teacher, method: :delete, data: { confirm: 'Are you sure?' } %> 
+  |
+  <%= link_to 'Back', teachers_path %>
+</main>

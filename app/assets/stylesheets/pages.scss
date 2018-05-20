@@ -1,8 +1,17 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background: linear-gradient(rgb(238, 249, 255), rgb(219, 219, 247));
+}
+#navbarmenu {
+  background-color: #E7F6D9;
+}
+.welcome {
+  margin: 40px;
+}
 .col-sm {
-  margin: 20px;
+  margin: 10px;
   padding: 40px;
   background-color: #9EEAC7;
   text-align: center;
@@ -12,7 +21,7 @@
   text-decoration-style: none;
 }
 section {
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: #CDF8A7;
 }
 .nav-link a {
@@ -23,14 +32,12 @@ main {
   padding: 40px;
   background-color: #CDF8A7;
   border-radius: 3px;
-  width: 45%;
+  width: 80%;
   display: block;
-  float: left;
 }
 aside {
   display: block;
-  float: right;
-  width: 50%;
+  width: 45%;
   margin: 40px;
   padding: 40px;
   // animation: glideIn 

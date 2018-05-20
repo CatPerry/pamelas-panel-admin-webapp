@@ -1,39 +1,120 @@
 <p id="notice"><%= notice %></p>
-<h1>MANAGE</h1>
-<%= link_to 'Teachers', teachers_path %>
-<%= link_to 'Students', students_path %>
-<%= link_to 'Courses', courses_path %>
-<%= link_to 'Cohorts', cohorts_path %>
-<%= link_to 'Home', admins_path %>
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">SCHOOLHUB</a>
 
-<h1>Cohorts</h1>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+          </li>
+        </ul>
+      </nav>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Course</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <div class="container-fluid">
+        <div class="row">
+          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file"></span>
+                      <%= link_to 'Teachers', teachers_path %>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="shopping-cart"></span>
+                      <%= link_to 'Students', students_path %>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="users"></span>
+                      <%= link_to 'Courses', courses_path %>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="bar-chart-2"></span>
+                      <%= link_to 'Cohorts', cohorts_path %>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="layers"></span>
+                      <%= link_to 'Home', admins_path %>
+                  </a>
+                </li>
+              </ul>
 
-  <tbody>
-    <% @cohorts.each do |cohort| %>
-      <tr>
-        <td><%= cohort.name %></td>
-        <td><%= cohort.start_date %></td>
-        <td><%= cohort.end_date %></td>
-        <td><%= cohort.course_id %></td>
-        <td><%= link_to 'Show', cohort %> | </td>
-        <td><%= link_to 'Edit', edit_cohort_path(cohort) %> | </td>
-        <td><%= link_to 'Delete', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Saved reports</span>
+                <a class="d-flex align-items-center text-muted" href="#">
+                  <span data-feather="plus-circle"></span>
+                </a>
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Current month
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Last quarter
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Social engagement
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Year-end sale
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
 
-<br>
-
-<%= link_to 'New Cohort', new_cohort_path %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <p><h1 class="h2">ADMIN DASHBOARD</h1></p>
+            <br>
+            <h1>Cohorts</h1>
+              <br>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Course</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+              
+                <tbody class="courses-cohorts">
+                  <% @cohorts.each do |cohort| %>
+                    <tr>
+                      <td><%= cohort.name %></td>
+                      <td><%= cohort.start_date %></td>
+                      <td><%= cohort.end_date %></td>
+                      <td><%= cohort.course_id %></td>
+                      <td><%= link_to 'Show', cohort %> | </td>
+                      <td><%= link_to 'Edit', edit_cohort_path(cohort) %> | </td>
+                      <td><%= link_to 'Delete', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                  <%= link_to 'New Cohort', new_cohort_path %>
+                </tbody>
+              </table>
+            </main>
+        </div>
+      </div>
+</main>
