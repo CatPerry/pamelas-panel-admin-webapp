@@ -4,7 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <%= stylesheet_link_tag 'application'%>
-    <%= javascript_pack_tag 'application' %>
+    <%# <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -46,6 +47,7 @@
       </nav>
     </section>
 
+  
     <div class="welcome">
     <%= react_component("HelloWorld", { greeting: "Please go to your respective page to log in!" }) %>
     </div>
@@ -64,6 +66,9 @@
         </div>
       </div>
     </div>
+
+    <%=image_tag "accomplishment-ceremony-college-267885.jpg"%>
+
 
     <%= react_component("HomeMicropost") %>
   
