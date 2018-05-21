@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   # before_action :set_student, only: [:show, :edit, :update, :destroy]
-  # before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
   before_action :set_title
 
   def home
@@ -21,8 +21,8 @@ class PagesController < ApplicationController
 
   def teacher
     @teachers = Teacher.all
+    # @teacher = Teacher.friendly.find(params[:id])
     @page_title = "Teachers' Page SchoolHub"
-
     # current_user.includes? :teacher_passport
     # teacher = true
     # @teacher = Teacher.find(params[:id])
