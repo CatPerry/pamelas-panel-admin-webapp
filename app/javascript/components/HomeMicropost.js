@@ -29,12 +29,12 @@ class HomeMicropost extends React.Component {
 }
 
 
-//clock idea from https://www.w3schools.com/js/js_timing.asp
-  let myVar = setInterval(myTimer, 1000);
-              function myTimer() {
-    let d = new Date();
-      document.getElementById("clock").innerHTML = d.toLocaleTimeString();
-  }
+// //clock idea from https://www.w3schools.com/js/js_timing.asp
+//   let myVar = setInterval(myTimer, 1000);
+//               function myTimer() {
+//     let d = new Date();
+//       document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+//   }
              
 
 export default HomeMicropost

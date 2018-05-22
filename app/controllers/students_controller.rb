@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    @student = Student.friendly.find(params[:id])
+    @student = Student.find(params[:id])
   end
 
   # GET /students/new
@@ -23,6 +23,15 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @student = Student.find(params[:id])
+    @cohorts = Cohorts.all
+
+    @student_cohorts = StudentCohort.where(student_id: @stuent.id).map do |student_cohort| 
+      student_cohort.student_id
+    end
+    @cohorts = Cohort.where(cohort_id: @cohort.id).map do |cohort| 
+      cohort.cohort_id
+    end
   end
 
   # POST /students
@@ -65,10 +74,39 @@ class StudentsController < ApplicationController
     end
   end
 
+  def add_student_cohort
+    student_cohort = StudentCohort.new(
+    student_id: params[:student_id],
+    cohort_id: params[:cohort_id]
+    )
+
+    if student_cohort.save
+      flash[:info] = "Everything good"
+    else
+      flash[:error] = "Everything bad"
+    end
+
+    redirect_to edit_student_path(params[:student_id])
+  end
+
+  def add_cohort
+    cohort = Cohort.new(
+    cohort_id: params[:cohort_id]
+    )
+
+    if cohort.save
+      flash[:info] = "Everything good"
+    else
+      flash[:error] = "Everything bad"
+    end
+
+    redirect_to edit_student_path(params[:cohort_id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
-      @student = Student.friendly.find(params[:id])
+      @student = Student.find(params[:id])
     end
 
     def student_passport
@@ -77,6 +115,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :age, :education, :image, :student_passport, :cohort)
+      params.require(:student).permit(:first_name, :last_name, :age, :education, :image, :student_passport)
     end
 end

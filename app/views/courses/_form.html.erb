@@ -1,4 +1,4 @@
-<%= form_with(model: course, local: true) do |form| %>
+<%= form_with(model: @course, local: true) do |form| %>
   <% if course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -19,6 +19,11 @@
   <div class="field">
     <%= form.label :hours %>
     <%= form.number_field :hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cohort_id %>
+    <%= form.select :cohort_id, @cohort.map { |c | [cohort.name, cohort.id]} %>
   </div>
 
   <div class="actions">

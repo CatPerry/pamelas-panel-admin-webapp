@@ -3,4 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .teach-stu-list {
   width: 100%;
+  box-shadow: gray 2px 2px 2px;
+}
+body {
+  overflow: scroll;
 }

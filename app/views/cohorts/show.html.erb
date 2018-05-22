@@ -17,8 +17,13 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @cohort.course_id %>
+  <%= @cohort.course.id.name %>
 </p>
+
+<%# <p>
+  <strong>Student:</strong>
+  <%= @cohort.student.id(params[:name]) %>
+
 
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>

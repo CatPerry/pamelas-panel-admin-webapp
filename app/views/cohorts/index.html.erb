@@ -1,3 +1,6 @@
+<div class="body"><%=image_tag "art-color-color-palette-159560.jpg"%></div>
+
+
 <p id="notice"><%= notice %></p>
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">SCHOOLHUB</a>
@@ -46,44 +49,10 @@
                   </a>
                 </li>
               </ul>
-
-              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>Saved reports</span>
-                <a class="d-flex align-items-center text-muted" href="#">
-                  <span data-feather="plus-circle"></span>
-                </a>
-              </h6>
-              <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Current month
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Last quarter
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Social engagement
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Year-end sale
-                  </a>
-                </li>
-              </ul>
             </div>
           </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <p><h1 class="h2">ADMIN DASHBOARD</h1></p>
             <br>
             <h1>Cohorts</h1>
@@ -102,10 +71,10 @@
                 <tbody class="courses-cohorts">
                   <% @cohorts.each do |cohort| %>
                     <tr>
-                      <td><%= cohort.name %></td>
-                      <td><%= cohort.start_date %></td>
-                      <td><%= cohort.end_date %></td>
-                      <td><%= cohort.course_id %></td>
+                      <td><%= cohort.id.name %></td>
+                      <td><%= cohort.start_date.strftime("%m/%d/%Y") %></td>
+                      <td><%= cohort.end_date.strftime("%m/%d/%Y") %></td>
+                      <td><%= cohort.course.id.name %></td>
                       <td><%= link_to 'Show', cohort %> | </td>
                       <td><%= link_to 'Edit', edit_cohort_path(cohort) %> | </td>
                       <td><%= link_to 'Delete', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>

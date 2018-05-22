@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_19_190303) do
+ActiveRecord::Schema.define(version: 2018_05_21_215251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2018_05_19_190303) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.integer "student_id"
+    t.integer "teacher_id"
     t.index ["slug"], name: "index_cohorts_on_slug", unique: true
   end
 
@@ -118,6 +120,7 @@ ActiveRecord::Schema.define(version: 2018_05_19_190303) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.integer "cohort_id"
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_teachers_on_slug", unique: true
     t.index ["teacher_id"], name: "index_teachers_on_teacher_id"

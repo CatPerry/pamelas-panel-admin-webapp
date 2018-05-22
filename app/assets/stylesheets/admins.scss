@@ -7,7 +7,14 @@
   height: 16px;
   vertical-align: text-bottom;
 }
-
+main.col-md-9 {
+  background-color: rgb(238, 252, 251);
+}
+.body {
+  position: fixed;
+  opacity: 1;
+  width: 100%;
+}
 /*
  * Sidebar
  */

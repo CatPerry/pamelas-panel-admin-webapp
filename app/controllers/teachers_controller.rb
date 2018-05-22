@@ -12,7 +12,7 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
-    @teacher = Teacher.friendly.find(params[:id])
+    @teacher = Teacher.find(params[:id])
   end
 
   # GET /teachers/new
@@ -64,10 +64,26 @@ class TeachersController < ApplicationController
     end
   end
 
+  def add_cohort
+    teacher_cohort = TeacherCohort.new(
+    teacher_id: params[:teacher_id],
+    cohort_id: params[:cohort_id]
+    )
+
+    if teacher_cohort.save
+      flash[:info] = "Everything good"
+    else
+      flash[:error] = "Everything bad"
+    end
+
+    redirect_to edit_teacher_path(params[:teacher_id])
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_teacher
-      @teacher = Teacher.friendly.find(params[:id])
+      @teacher = Teacher.find(params[:id])
     end
 
     def teacher_passport

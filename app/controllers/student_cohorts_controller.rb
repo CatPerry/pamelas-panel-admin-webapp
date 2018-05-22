@@ -24,8 +24,8 @@ class StudentCohortsController < ApplicationController
   # POST /student_cohorts
   # POST /student_cohorts.json
   def create
-    @student_cohort = StudentCohort.new(student_cohort_params)
-
+    @student_cohorts = StudentCohort.new(student_cohort_params)
+    
     respond_to do |format|
       if @student_cohort.save
         format.html { redirect_to @student_cohort, notice: 'Student cohort was successfully created.' }
@@ -60,6 +60,37 @@ class StudentCohortsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_student
+    student_cohort = StudentCohort.new(
+    student_id: params[:student_id],
+    cohort_id: params[:cohort_id]
+    )
+
+    if student_cohort.save
+      flash[:info] = "Everything good"
+    else
+      flash[:error] = "Everything bad"
+    end
+
+    redirect_to edit_stuent_path(params[:student_id])
+  end
+
+  def add_cohort
+    student_cohort = StudentCohort.new(
+    student_id: params[:student_id],
+    cohort_id: params[:cohort_id]
+    )
+
+    if student_cohort.save
+      flash[:info] = "Everything good"
+    else
+      flash[:error] = "Everything bad"
+    end
+
+    redirect_to edit_student_path(params[:student_id])
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

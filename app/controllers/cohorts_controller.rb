@@ -5,21 +5,32 @@ class CohortsController < ApplicationController
   # GET /cohorts.json
   def index
     @cohorts = Cohort.all
+    @course = Course.all
   end
 
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
-    @cohort = Cohort.friendly.find(params[:id])
+    @cohort = Cohort.find(params[:id])
+    # @student = Student.find(params[:id])
+
   end
 
   # GET /cohorts/new
   def new
     @cohort = Cohort.new
+    @teachers = Teacher.all
+    @courses = Course.all
   end
 
   # GET /cohorts/1/edit
   def edit
+    @course = Course.find(params[:id])
+    @cohorts = Cohorts.all
+
+    @student_cohorts = StudentCohort.where(student_id: @student.id).map do |student_cohort| 
+      student_cohort.student_id
+    end
   end
 
   # POST /cohorts
@@ -65,11 +76,11 @@ class CohortsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cohort
-      @cohort = Cohort.friendly.find(params[:id])
+      @cohort = Cohort.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
-      params.require(:cohort).permit(:name, :start_date, :end_date, :course_id)
+      params.require(:cohort).permit(:name, :start_date, :end_date, :teacher_id)
     end
 end

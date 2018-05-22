@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <%= stylesheet_link_tag 'application'%>
     <%# <%= javascript_pack_tag 'application' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
-
+    <%#= javascript_include_tag 'home', 'data-turbolinks-track': 'reload'%>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -34,7 +33,15 @@
               <a class="nav-link" href="#">What's Next</a>
             </li>
 
-            <li><button id="clock"></button>
+            <li><button id="clock">
+            <script>
+            let myVar = setInterval(myTimer, 1000);
+            function myTimer() {
+              let d = new Date();
+              document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+            }
+            </script>
+            </button>
              
             </li>
           </ul>
@@ -48,9 +55,11 @@
     </section>
 
   
-    <div class="welcome">
-    <%= react_component("HelloWorld", { greeting: "Please go to your respective page to log in!" }) %>
+    <main><div class="main welcome">
+    <p><h2>Welcome! Please go to your respective page to log in!</h2></p>
+    
     </div>
+    </main>
             
 
      <div class="container">
@@ -67,7 +76,16 @@
       </div>
     </div>
 
-    <%=image_tag "accomplishment-ceremony-college-267885.jpg"%>
+    <main id="announcements">
+    <script>
+      let announcement;
+      function headsup() {
+        announcement = setInterval(alertFunc, 5000, "Students! Midpoint reivews are coming up in June. See a counselor at least two weeks in advanced for a quick consult.", "Teachers! Midpoint reivews for the students are coming up in June. Be prepared Be prepared to setup an appointment!");   
+        }
+      headsup()
+    </script>
+    </main>
+
 
 
     <%= react_component("HomeMicropost") %>

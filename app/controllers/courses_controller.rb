@@ -10,16 +10,20 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    @course = Course.friendly.find(params[:id])
+    @course = Course.find(params[:id])
   end
 
   # GET /courses/new
   def new
     @course = Course.new
+    @cohorts = Cohort.all
   end
 
   # GET /courses/1/edit
   def edit
+    @course = Course.find(params[:id])
+    @cohorts = Cohorts.all
+
   end
 
   # POST /courses
@@ -62,10 +66,25 @@ class CoursesController < ApplicationController
     end
   end
 
+  def add_cohort
+    cohort = Cohort.new(
+    cohort_id: params[:cohort_id]
+    )
+
+    if cohort.save
+      flash[:info] = "Everything good"
+    else
+      flash[:error] = "Everything bad"
+    end
+
+    redirect_to course_path(params[:cohort_id])
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.friendly.find(params[:id])
+      @course = Course.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

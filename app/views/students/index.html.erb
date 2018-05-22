@@ -1,106 +1,120 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title><%= @page_title %></title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
+    <%= csrf_meta_tag %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="body"><%=image_tag "abstract-art-artistic-459799.jpg"%></div>
 
-  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">SCHOOLHUB</a>
+    <p id="notice"><%= notice %></p>
 
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#">Sign out</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="container-fluid">
-  <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-                <%= link_to 'Teachers', teachers_path %>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-                <%= link_to 'Students', students_path %>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-                <%= link_to 'Courses', courses_path %>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-                <%= link_to 'Cohorts', cohorts_path %>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-                <%= link_to 'Home', admins_path %>
-            </a>
+      <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">SCHOOLHUB</a>
+
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
           </li>
         </ul>
-
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Saved reports</span>
-            <a class="d-flex align-items-center text-muted" href="#">
-              <span data-feather="plus-circle"></span>
-            </a>
-          </h6>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Current month
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Last quarter
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Social engagement
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Year-end sale
-              </a>
-            </li>
-          </ul>
-        </div>
       </nav>
-    
+      <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                    <%= link_to 'Teachers', teachers_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="shopping-cart"></span>
+                    <%= link_to 'Students', students_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                    <%= link_to 'Courses', courses_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="bar-chart-2"></span>
+                    <%= link_to 'Cohorts', cohorts_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="layers"></span>
+                    <%= link_to 'Home', admins_path %>
+                </a>
+              </li>
+            </ul>
 
-  <main role="main" class="teach-stu-list col-md-9 ml-sm-auto col-lg-9 px-4">
-    <h1 class="h2">ADMIN DASHBOARD</h1>
-      <h1>Students</h1>
-      <% @students.each do |student|%>
-        <p>
-          <%= image_tag student.image unless student.image.nil? %><br>
-          <h2><%= link_to "Name: #{student.first_name} #{student.last_name}", student %><br></h2>
-          <%= "Age: #{student.age}" %><br>
-          <%= "Education: #{student.education}" %><br>
-          <%= "Student Passport: #{student.student_passport}" %><br>
-        </p>
-        <% end %>
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Saved reports</span>
+                <a class="d-flex align-items-center text-muted" href="#">
+                  <span data-feather="plus-circle"></span>
+                </a>
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Current month
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Last quarter
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Social engagement
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Year-end sale
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        
+
+      <main role="main" class="teach-stu-list col-md-9 ml-sm-auto col-lg-9 px-4">
+        <h1 class="h2">ADMIN DASHBOARD</h1>
+          <h1>Students</h1>
+          <% @students.each do |student|%>
+            <p>
+              <%= image_tag student.image unless student.image.nil? %><br>
+              <h2><%= link_to "Name: #{student.first_name} #{student.last_name}", student %><br></h2>
+              <%= "Age: #{student.age}" %><br>
+              <%= "Education: #{student.education}" %><br>
+              <%= "Student Passport: #{student.student_passport}" %><br>
+            </p>
+            <% end %>
+            </div>
+          </main>
         </div>
-      </main>
-    </div>
-  </div>
+      </div>
 
-  <br>
+      <br>
 
-  <%= link_to 'New Student', new_student_path %>
-</main>
+      <%= link_to 'New Student', new_student_path %>
+    </main>
+  </body>
+</html>

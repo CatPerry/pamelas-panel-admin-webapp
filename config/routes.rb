@@ -13,9 +13,13 @@ Rails.application.routes.draw do
   resources :student_cohorts
   resources :teacher_cohorts
   resources :students
-  resources :cohorts
+  resources :cohorts do
+    # aS gives you acces to file path
+    get "/course/:course_id", to: "cohorts#add_cohort", as: "add_course" 
+  end
   resources :teachers
-  resources :courses
+  resources :courses 
+
   resources :admins
 
   root to: 'pages#home'

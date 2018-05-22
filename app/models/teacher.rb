@@ -8,9 +8,10 @@ class Teacher < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :courses, through: :cohorts
   has_many :students, through: :cohorts
+  belongs_to :cohorts
 
-  extend FriendlyId
-  friendly_id :first_name, use: :slugged
+  # extend FriendlyId
+  # friendly_id :first_name, use: :slugged
 
 
   validates :age, numericality: {

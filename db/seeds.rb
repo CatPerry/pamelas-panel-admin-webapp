@@ -77,7 +77,7 @@ puts "You just created 5 courses"
     name: "#{cohortNames.sample}",
     start_date: "#{randoTimeNow}",
     end_date: "#{randoTimeLater}",
-    course_id: "#{courseNames.sample}",
+    course_id: "#{courseNames.sample}"
   )
 end
 
