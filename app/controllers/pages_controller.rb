@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   # before_action :set_student, only: [:show, :edit, :update, :destroy]
-  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  # before_action :set_teacher, only: [:show, :edit, :update, :destroy]
   before_action :set_title
 
   def home

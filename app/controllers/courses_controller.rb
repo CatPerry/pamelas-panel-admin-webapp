@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
   # GET /courses/1.json
   def show
     @course = Course.find(params[:id])
+    @cohorts = Cohort.all
   end
 
   # GET /courses/new

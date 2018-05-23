@@ -2,13 +2,9 @@ class Teacher < ApplicationRecord
 
   resourcify
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
   has_many :courses, through: :cohorts
   has_many :students, through: :cohorts
-  belongs_to :cohorts
+  belongs_to :cohort
 
   # extend FriendlyId
   # friendly_id :first_name, use: :slugged

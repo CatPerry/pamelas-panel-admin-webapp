@@ -19,6 +19,8 @@ class TeacherCohortsController < ApplicationController
 
   # GET /teacher_cohorts/1/edit
   def edit
+  @teacher_cohort = TeacherCohort.find(params[:id])  
+
   end
 
   # POST /teacher_cohorts
@@ -26,39 +28,30 @@ class TeacherCohortsController < ApplicationController
   def create
     @teacher_cohort = TeacherCohort.new(teacher_cohort_params)
 
-    respond_to do |format|
-      if @teacher_cohort.save
-        format.html { redirect_to @teacher_cohort, notice: 'Teacher cohort was successfully created.' }
-        format.json { render :show, status: :created, location: @teacher_cohort }
-      else
-        format.html { render :new }
-        format.json { render json: @teacher_cohort.errors, status: :unprocessable_entity }
-      end
+    if @teacher_cohort.save
+      redirect_to cohorts_url 
+    else
+      render :action => 'new'
     end
   end
 
   # PATCH/PUT /teacher_cohorts/1
   # PATCH/PUT /teacher_cohorts/1.json
   def update
-    respond_to do |format|
-      if @teacher_cohort.update(teacher_cohort_params)
-        format.html { redirect_to @teacher_cohort, notice: 'Teacher cohort was successfully updated.' }
-        format.json { render :show, status: :ok, location: @teacher_cohort }
-      else
-        format.html { render :edit }
-        format.json { render json: @teacher_cohort.errors, status: :unprocessable_entity }
-      end
-    end
+    @teacher_cohort = TeacherCohort.find(params[:id])
+	
+   if @teacher_cohort.update_attributes(teacher_cohort_params)
+      redirect_to cohorts_url
+   else
+      render :action => 'edit'
+   end
   end
 
   # DELETE /teacher_cohorts/1
   # DELETE /teacher_cohorts/1.json
   def destroy
-    @teacher_cohort.destroy
-    respond_to do |format|
-      format.html { redirect_to teacher_cohorts_url, notice: 'Teacher cohort was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    TeacherCohort.find(params[:id]).destroy
+    redirect_to :cohorts => 'cohorts', :action => 'index' 
   end
 
   private

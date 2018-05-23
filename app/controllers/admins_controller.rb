@@ -7,8 +7,8 @@ class AdminsController < ApplicationController
     @admins = Admin.all
     @teachers = Teacher.all
     @students = Student.all
-    @couses = Course.all
-    # @cohorts = Cohort.all
+    @courses = Course.all
+    @cohorts = Cohort.all
     @student_cohorts = StudentCohort.all
     @teacher_cohorts = TeacherCohort.all
     @admins = Admin.all
@@ -89,8 +89,8 @@ class AdminsController < ApplicationController
       
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_params
-      params.require(:admin).permit(:username, :password)
-    end
+    # # Never trust parameters from the scary internet, only allow the white list through.
+    # def admin_params
+    #   params.require(:admin).permit(:username, :password)
+    # end
 end

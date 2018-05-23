@@ -18,20 +18,27 @@
 
   <div class="field">
     <%= form.label :start_date %>
-    <%= form.datetime_select :start_date %>
+    <%= form.date_select :start_date %>
   </div>
 
   <div class="field">
     <%= form.label :end_date %>
-    <%= form.datetime_select :end_date %>
+    <%= form.date_select :end_date %>
   </div>
 
   <div class="field">
     <%= form.label :course_id %>
-    <%= form.select :course_id, @course.map { |course | [course.name, course.id]} %>
+    <%= form.collection_select(:course_id, Course.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :teacher_id %>
+    <%= form.collection_select(:teacher_id, Teacher.all, :id, :first_name) %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+

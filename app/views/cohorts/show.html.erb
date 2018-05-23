@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<%=@cohort.name + " Cohort"%>
+<p>
+  <strong>Course:</strong>
+  <%= @cohort.course.name %>
+</p>
 <p>
   <strong>Name:</strong>
   <%= @cohort.name %>
@@ -16,14 +21,9 @@
 </p>
 
 <p>
-  <strong>Course:</strong>
-  <%= @cohort.course.id.name %>
+  <strong>Teacher:</strong>
+  <%= @cohort.teacher.first_name + " " + @cohort.teacher.last_name %>
 </p>
-
-<%# <p>
-  <strong>Student:</strong>
-  <%= @cohort.student.id(params[:name]) %>
-
 
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>

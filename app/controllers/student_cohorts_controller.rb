@@ -19,7 +19,7 @@ class StudentCohortsController < ApplicationController
 
   # GET /student_cohorts/1/edit
   def edit
-  end
+    @student_cohort = StudentCohort.find(params[:id])    end
 
   # POST /student_cohorts
   # POST /student_cohorts.json

@@ -32,11 +32,6 @@
     <%= @teacher.education %>
   </p>
 
-  <p>
-    <strong>Teacher Passport:</strong>
-    <%= @teacher.teacher_passport %>
-  </p>
-
   <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
   <%= link_to 'Delete', @teacher, method: :delete, data: { confirm: 'Are you sure?' } %> 
   |

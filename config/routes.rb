@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  
-  devise_for :teachers, path: '', path_names: {sign_in: 'teacher-login', sign_out: 'teacher-logout', sign_up: "teacher-register"}
-  devise_for :students, path: '', path_names: {sign_in: 'student-login', sign_out: 'student-logout', sign_up: "student-register"}
-  devise_for :admins, path: '', path_names: {sign_in: 'admin-login', sign_out: 'admin-logout', sign_up: "admin-register"}
+ 
 
   get 'admin-portal', to: 'pages#admin'
   get 'teacher-portal', to: 'pages#teacher'

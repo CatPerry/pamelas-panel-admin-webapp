@@ -77,9 +77,12 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
+#     
+  # database: PamelasAdminPanel_production
+  # username: PamelasAdminPanel
+  # password: <%= ENV['PAMELASADMINPANEL_DATABASE_PASSWORD'] %>
+ 
 #
 production:
   <<: *default
-  database: PamelasAdminPanel_production
-  username: PamelasAdminPanel
-  password: <%= ENV['PAMELASADMINPANEL_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -12,25 +12,35 @@ class CohortsController < ApplicationController
   # GET /cohorts/1.json
   def show
     @cohort = Cohort.find(params[:id])
-    # @student = Student.find(params[:id])
-
+    @courses = Course.all
+    @students = @cohort.students
   end
 
   # GET /cohorts/new
   def new
     @cohort = Cohort.new
-    @teachers = Teacher.all
+    # @teachers = Teacher.all
+    @teacher = Teacher.find_by(teacher_id: params[:id])
     @courses = Course.all
   end
 
   # GET /cohorts/1/edit
   def edit
-    @course = Course.find(params[:id])
-    @cohorts = Cohorts.all
+   @cohort = Cohort.find(params[:id])
 
-    @student_cohorts = StudentCohort.where(student_id: @student.id).map do |student_cohort| 
-      student_cohort.student_id
+    @student_cohort_remove = StudentCohort.find_by(cohort_id: params[:id])
+    if TeacherCohort.find_by(cohort_id: params[:id])
+      @teacher_cohort = TeacherCohort.find_by(cohort_id: params[:id])
+    else 
+      @teacher_cohort = TeacherCohort.new
     end
+
+    if StudentCohort.find_by(cohort_id: params[:id])
+      @student_cohort = StudentCohort.find_by(cohort_id: params[:id])
+    else 
+      @student_cohort = StudentCohort.new
+    end
+  
   end
 
   # POST /cohorts
@@ -52,6 +62,8 @@ class CohortsController < ApplicationController
   # PATCH/PUT /cohorts/1
   # PATCH/PUT /cohorts/1.json
   def update
+    @cohort = Cohort.find(params[:id])
+
     respond_to do |format|
       if @cohort.update(cohort_params)
         format.html { redirect_to @cohort, notice: 'Cohort was successfully updated.' }
@@ -81,6 +93,6 @@ class CohortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
-      params.require(:cohort).permit(:name, :start_date, :end_date, :teacher_id)
+      params.require(:cohort).permit(:name, :start_date, :end_date, :course_id, :teacher_id)
     end
 end

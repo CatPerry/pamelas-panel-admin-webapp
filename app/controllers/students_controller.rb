@@ -26,7 +26,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @cohorts = Cohorts.all
 
-    @student_cohorts = StudentCohort.where(student_id: @stuent.id).map do |student_cohort| 
+    @student_cohorts = StudentCohort.where(student_id: @student.id).map do |student_cohort| 
       student_cohort.student_id
     end
     @cohorts = Cohort.where(cohort_id: @cohort.id).map do |cohort| 

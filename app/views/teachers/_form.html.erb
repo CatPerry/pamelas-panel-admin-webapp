@@ -33,13 +33,17 @@
 
   <div class="field">
     <%= form.label :education %>
-    <%= form.collection_select :education %>
+    <%= form.select :education, ["HS", "College", "Masters", "PhD"] %>
   </div>
 
   <div class="field">
     <%= form.label :image %>
     <%= form.text_field :image %>
   </div>
+
+  <div class="field">
+    <%= form.label :cohort_id %>
+    <%= form.collection_select(:cohort_id, Cohort.all, :id, :name) %>  </div>
 
   <div class="actions">
     <%= form.submit %>

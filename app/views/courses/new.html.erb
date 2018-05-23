@@ -1,5 +1,10 @@
 <h1>New Course</h1>
 
-<%= render 'form', course: @course %>
+<%= form_with model: @course, local: true do |form| %>
+  <%= form.text_field :name, placeholder: "Name" %><br />
+  <%= form.number_field :hours, placeholder: "Hours" %>
+  <%= form.select :cohort_id, @cohorts.map { |cohort| [cohort.name, cohort.id] } %>
+  <%= form.submit %>
+<% end %>
 
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Back', new_course_path %>

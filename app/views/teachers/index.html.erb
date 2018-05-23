@@ -17,11 +17,18 @@
     <div class="body"><%=image_tag "adult-books-campus-159775.jpg"%></div>
 
     <p id="notice"><%= notice %></p>
-
       <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">SCHOOLHUB</a>
+          <button id="clock">
+            <script>
+              let myVar = setInterval(myTimer, 1000);
+              function myTimer() {
+                let d = new Date();
+                document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+              }
+            </script>
+            </button>  
 
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
             <a class="nav-link" href="#">Sign out</a>
@@ -61,10 +68,16 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">
                     <span data-feather="layers"></span>
+                      <%= link_to 'Student Cohorts', student_cohorts_path %>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="layers"></span>
                       <%= link_to 'Home', admins_path %>
                   </a>
                 </li>
-              </ul>    
+              </ul>
             </div>
           </nav>
           
@@ -78,12 +91,14 @@
                     <%= "Age: #{teacher.age}" %><br>
                     <%= "Salary: #{teacher.salary}" %><br>
                     <%= "Education: #{teacher.education}" %><br>
-                    <%= "Teacher Passport: #{teacher.teacher_passport}" %><br>
+                    <%= "Cohort: #{teacher.cohort_id}" %><br>
                   <% end %>
+                  <br>
+                  <br>
+                <%= link_to 'New Teacher', new_teacher_path %>
               </div>
             </main>
           </div>
-        </div>
         
           <br>
 
