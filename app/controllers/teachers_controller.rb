@@ -27,10 +27,7 @@ class TeachersController < ApplicationController
   def edit
     @teacher = Teacher.find(params[:id])
     @cohorts = Cohort.all
-
-    @teacher_cohorts = TeacherCohort.where(teacher_id: @teacher.id).map do |teacher_cohort| 
-      student_cohort.student_id
-    end
+    
     @cohorts = Cohort.where(cohort_id: @cohort.id).map do |cohort| 
       cohort.cohort_id
     end

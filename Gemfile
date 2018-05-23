@@ -60,6 +60,5 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 # Use SCSS for stylesheets
 # gem 'bootstrap-sass', '~> 3.3.7'
-gem 'webpacker'
 gem 'react-rails'
 gem 'administrate'
