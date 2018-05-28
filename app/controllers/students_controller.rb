@@ -14,6 +14,7 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     @student = Student.find(params[:id])
+    @cohorts = Cohort.all
   end
 
   # GET /students/new
@@ -23,15 +24,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    @student = Student.find(params[:id])
-    @cohorts = Cohorts.all
 
-    @student_cohorts = StudentCohort.where(student_id: @student.id).map do |student_cohort| 
-      student_cohort.student_id
-    end
-    @cohorts = Cohort.where(cohort_id: @cohort.id).map do |cohort| 
-      cohort.cohort_id
-    end
   end
 
   # POST /students

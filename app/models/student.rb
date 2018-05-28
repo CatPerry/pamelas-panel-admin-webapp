@@ -1,6 +1,4 @@
 class Student < ApplicationRecord
-  resourcify
-  
   has_many :courses, through: :cohorts
   has_many :teachers, through: :cohorts
   has_many :student_cohorts, through: :cohorts

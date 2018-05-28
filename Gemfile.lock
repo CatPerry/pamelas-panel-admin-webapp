@@ -56,11 +56,6 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (8.5.0)
       execjs
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
-    bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.0)
       msgpack (~> 1.0)
@@ -78,16 +73,9 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-    connection_pool (2.2.1)
     crass (1.0.4)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
-    devise (4.4.3)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 6.0)
-      responders
-      warden (~> 1.2.3)
     erubi (1.7.1)
     execjs (2.7.0)
     faraday (0.15.2)
@@ -142,7 +130,6 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    orm_adapter (0.5.0)
     pg (1.0.0)
     popper_js (1.12.9)
     puma (3.11.4)
@@ -177,16 +164,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    react-rails (2.4.4)
-      babel-transpiler (>= 0.7.0)
-      connection_pool
-      execjs
-      railties (>= 3.2)
-      tilt
-    responders (2.4.0)
-      actionpack (>= 4.2.0, < 5.3)
-      railties (>= 4.2.0, < 5.3)
-    rolify (5.2.0)
     ruby_dep (1.5.0)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
@@ -224,8 +201,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.10)
       execjs (>= 0.3.0, < 3)
-    warden (1.2.7)
-      rack (>= 1.0)
     web-console (3.6.2)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -244,7 +219,6 @@ DEPENDENCIES
   bootstrap (~> 4.1.1)
   byebug
   coffee-rails (~> 4.2)
-  devise
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
   jquery-rails
@@ -252,8 +226,6 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.0)
-  react-rails
-  rolify
   sass-rails (~> 5.0)
   sentry-raven
   spring

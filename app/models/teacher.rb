@@ -1,7 +1,4 @@
 class Teacher < ApplicationRecord
-
-  resourcify
-
   has_many :courses, through: :cohorts
   has_many :students, through: :cohorts
   belongs_to :cohort
