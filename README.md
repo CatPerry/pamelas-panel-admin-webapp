@@ -1,24 +1,14 @@
 # README
+I've designed a School Administrator's app that allows the admin to manage students, teachers, courses, and cohorts. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This has been drafted as the MVP (minimum viable product) without a login, though I intend to use either Clearance or Devise for it, and I was focusing on the database realationships foremost. This admin panel was built without using a Ruby Gem that does this exact thing. 
 
-Things you may want to cover:
+Technologies used
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby on Rails
+- HTML/CSS
+- Postgres
+- ActiveRecord
+- Ajax
+- Sentry API
+- JavaScript
