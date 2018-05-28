@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :teacher_id %>
-    <%= form.collection_select(:teacher_id, Teacher.all, :id, :first_name) %>
+    <%= form.select :teacher_id, @teachers.map { |teacher| [teacher.first_name +  teacher.last_name , teacher.id] } %>
   </div>
 
   <div class="actions">

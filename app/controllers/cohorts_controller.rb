@@ -14,7 +14,6 @@ class CohortsController < ApplicationController
   def show
     @cohort = Cohort.find(params[:id])
     @courses = Course.all
-    @students = @cohort.students
     @teachers = Teacher.all
   end
 
@@ -22,12 +21,13 @@ class CohortsController < ApplicationController
   def new
     @cohort = Cohort.new
     @student_cohort = StudentCohort.new
-    @teacher = Teacher.find_by(teacher_id: params[:id])
+    @teachers = Teacher.all
     @courses = Course.all
   end
 
   # GET /cohorts/1/edit
   def edit
+    @teachers = Teacher.all
     @cohort = Cohort.find(params[:id])
     @student_cohorts = StudentCohort.all
     @student_cohort_remove = StudentCohort.find_by(cohort_id: params[:id])
