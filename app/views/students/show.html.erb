@@ -29,16 +29,6 @@
   <%= @student.id %>
 </p>
 
-<p>
-  <strong>Student Passport:</strong>
-  <%= @student.student_passport %>
-</p>
-
-<p>
-  <strong>Cohorts:</strong>
-  <%= @student.cohorts.id %>
-</p>
-
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Delete', @student, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', students_path %>

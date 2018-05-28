@@ -1,5 +1,6 @@
 class CohortsController < ApplicationController
   before_action :set_cohort, only: [:show, :edit, :update, :destroy]
+  before_action :set_teacher, only: [:edit, :update]
 
   # GET /cohorts
   # GET /cohorts.json
@@ -14,26 +15,31 @@ class CohortsController < ApplicationController
     @cohort = Cohort.find(params[:id])
     @courses = Course.all
     @students = @cohort.students
+    @teachers = Teacher.all
   end
 
   # GET /cohorts/new
   def new
     @cohort = Cohort.new
-    # @teachers = Teacher.all
+    @student_cohort = StudentCohort.new
     @teacher = Teacher.find_by(teacher_id: params[:id])
     @courses = Course.all
   end
 
   # GET /cohorts/1/edit
   def edit
-   @cohort = Cohort.find(params[:id])
-
+    @cohort = Cohort.find(params[:id])
+    @student_cohorts = StudentCohort.all
     @student_cohort_remove = StudentCohort.find_by(cohort_id: params[:id])
+
     if TeacherCohort.find_by(cohort_id: params[:id])
       @teacher_cohort = TeacherCohort.find_by(cohort_id: params[:id])
     else 
       @teacher_cohort = TeacherCohort.new
     end
+
+    @student_cohort = StudentCohort.new
+    @students = Student.where.not(id: @student_cohorts.each{|student_cohort| student_cohort.student_id})
 
     if StudentCohort.find_by(cohort_id: params[:id])
       @student_cohort = StudentCohort.find_by(cohort_id: params[:id])
@@ -47,6 +53,10 @@ class CohortsController < ApplicationController
   # POST /cohorts.json
   def create
     @cohort = Cohort.new(cohort_params)
+    @teacher_cohort = TeacherCohort.new
+    @student_cohort = StudentCohort.new
+    @teachers = Teacher.all
+    @courses = Course.all
 
     respond_to do |format|
       if @cohort.save
@@ -91,8 +101,25 @@ class CohortsController < ApplicationController
       @cohort = Cohort.find(params[:id])
     end
 
+    def set_teacher
+      @teacher_cohort = TeacherCohort.find_by(cohort_id: params[:id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
       params.require(:cohort).permit(:name, :start_date, :end_date, :course_id, :teacher_id)
     end
+
+    def student_cohort_params
+      params.require(:cohort_student).permit(:student_id, :cohort_id)
+    end
+
+    def student_params
+      params.require(:cohort_student).permit(:student_id)
+    end
+
+    def teacher_params
+      params.require(:cohort_teacher).permit(:teacher_id, :cohort_id)
+    end
+
 end

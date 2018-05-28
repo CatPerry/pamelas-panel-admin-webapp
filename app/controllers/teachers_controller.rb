@@ -20,26 +20,21 @@ class TeachersController < ApplicationController
   # GET /teachers/new
   def new
     @teacher = Teacher.new
-    @cohorts = Cohort.all
   end
 
   # GET /teachers/1/edit
   def edit
     @teacher = Teacher.find(params[:id])
-    @cohorts = Cohort.all
     
-    @cohorts = Cohort.where(cohort_id: @cohort.id).map do |cohort| 
-      cohort.cohort_id
-    end
+    # @cohorts = Cohort.where(cohort_id: cohort.id).map do |cohort| 
+    #   cohort.cohort_id
+    # end
   end
 
   # POST /teachers
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
-    @cohorts = Cohort.all
-    @teacher_cohort = TeacherCohort.all
-
 
     respond_to do |format|
       if @teacher.save
@@ -79,7 +74,7 @@ class TeachersController < ApplicationController
   def add_cohort
     teacher_cohort = TeacherCohort.new(
     teacher_id: params[:teacher_id],
-    cohort_id: params[:cohort_id]
+    # cohort_id: params[:cohort_id]
     )
 
     if teacher_cohort.save
@@ -104,7 +99,7 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:first_name, :last_name, :age, :salary, :education, :image, :cohort_id)
+      params.require(:teacher).permit(:first_name, :last_name, :age, :salary, :education, :image)
     end
 
     

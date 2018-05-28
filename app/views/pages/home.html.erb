@@ -53,17 +53,14 @@
 
     <main id="announcements">
     <script>
-      let announcement;
+      let announcement = "";
       function headsup() {
         announcement = setInterval(alertFunc, 5000, "Students! Midpoint reivews are coming up in June. See a counselor at least two weeks in advanced for a quick consult.", "Teachers! Midpoint reivews for the students are coming up in June. Be prepared Be prepared to setup an appointment!");   
         }
-      headsup()
+      console.log(headsup());
     </script>
     </main>
 
-
-
-    <%= react_component("HomeMicropost") %>
   
 
     <!-- Optional JavaScript -->

@@ -20,10 +20,7 @@
   <%= @cohort.end_date %>
 </p>
 
-<p>
-  <strong>Teacher:</strong>
-  <%= @cohort.teacher.first_name + " " + @cohort.teacher.last_name %>
-</p>
+
 
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>

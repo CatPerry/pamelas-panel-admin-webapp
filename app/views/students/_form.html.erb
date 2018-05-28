@@ -28,17 +28,12 @@
 
   <div class="field">
     <%= form.label :education %>
-    <%= form.text_field :education %>
+    <%= form.select :education, ["HS", "College", "Masters", "PH.D"] %>
   </div>
 
   <div class="field">
     <%= form.label :image %>
     <%= form.text_field :image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cohorts %>
-    <%= form.collection_select :cohorts %>
   </div>
 
   <div class="actions">

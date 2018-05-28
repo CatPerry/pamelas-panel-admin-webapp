@@ -23,8 +23,6 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     @course = Course.find(params[:id])
-    @cohorts = Cohorts.all
-
   end
 
   # POST /courses

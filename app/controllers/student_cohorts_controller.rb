@@ -19,7 +19,7 @@ class StudentCohortsController < ApplicationController
 
   # GET /student_cohorts/1/edit
   def edit
-    @student_cohort = StudentCohort.find(params[:id])    end
+  end
 
   # POST /student_cohorts
   # POST /student_cohorts.json
@@ -61,37 +61,7 @@ class StudentCohortsController < ApplicationController
     end
   end
 
-  def add_student
-    student_cohort = StudentCohort.new(
-    student_id: params[:student_id],
-    cohort_id: params[:cohort_id]
-    )
-
-    if student_cohort.save
-      flash[:info] = "Everything good"
-    else
-      flash[:error] = "Everything bad"
-    end
-
-    redirect_to edit_stuent_path(params[:student_id])
-  end
-
-  def add_cohort
-    student_cohort = StudentCohort.new(
-    student_id: params[:student_id],
-    cohort_id: params[:cohort_id]
-    )
-
-    if student_cohort.save
-      flash[:info] = "Everything good"
-    else
-      flash[:error] = "Everything bad"
-    end
-
-    redirect_to edit_student_path(params[:student_id])
-  end
-
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student_cohort
@@ -102,4 +72,13 @@ class StudentCohortsController < ApplicationController
     def student_cohort_params
       params.require(:student_cohort).permit(:student_id, :cohort_id)
     end
+
+    def current_students
+      @current_students = @student_cohort.cohort.students
+    end
+
+    def remove_student
+      @student_remove = StudentCohort.find(params[:id])
+    end
+
 end
