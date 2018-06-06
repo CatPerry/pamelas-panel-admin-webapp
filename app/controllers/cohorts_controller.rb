@@ -15,12 +15,14 @@ class CohortsController < ApplicationController
     @cohort = Cohort.find(params[:id])
     @courses = Course.all
     @teachers = Teacher.all
+    @students = Student.all
   end
 
   # GET /cohorts/new
   def new
     @cohort = Cohort.new
     @student_cohort = StudentCohort.new
+    @students = Student.all
     @teachers = Teacher.all
     @courses = Course.all
   end
@@ -28,6 +30,7 @@ class CohortsController < ApplicationController
   # GET /cohorts/1/edit
   def edit
     @teachers = Teacher.all
+    @students = Student.all
     @cohort = Cohort.find(params[:id])
     @student_cohorts = StudentCohort.all
     @student_cohort_remove = StudentCohort.find_by(cohort_id: params[:id])
@@ -56,6 +59,7 @@ class CohortsController < ApplicationController
     @teacher_cohort = TeacherCohort.new
     @student_cohort = StudentCohort.new
     @teachers = Teacher.all
+    @students = Student.all
     @courses = Course.all
 
     respond_to do |format|
@@ -107,7 +111,7 @@ class CohortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
-      params.require(:cohort).permit(:name, :start_date, :end_date, :course_id, :teacher_id)
+      params.require(:cohort).permit(:name, :start_date, :end_date, :course_id, :teacher_id, :student_id)
     end
 
     def student_cohort_params
@@ -115,7 +119,7 @@ class CohortsController < ApplicationController
     end
 
     def student_params
-      params.require(:cohort_student).permit(:student_id)
+      params.require(:cohort_student).permit(:student_id, :cohort_id)
     end
 
     def teacher_params

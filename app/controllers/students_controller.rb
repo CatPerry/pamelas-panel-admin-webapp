@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all
     @page_title = "Students Page"
-
+    @cohorts = Cohort.all
   end
 
   # GET /students/1
@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-
+    @student = Student.find(params[:id])
   end
 
   # POST /students
@@ -67,7 +67,7 @@ class StudentsController < ApplicationController
     end
   end
 
-  def add_student_cohort
+  def add_cohort
     student_cohort = StudentCohort.new(
     student_id: params[:student_id],
     cohort_id: params[:cohort_id]

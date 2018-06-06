@@ -36,6 +36,11 @@
     <%= form.select :teacher_id, @teachers.map { |teacher| [teacher.first_name +  teacher.last_name , teacher.id] } %>
   </div>
 
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.select :student_id, @students.map { |student| [student.first_name +  student.last_name , student.id] } %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
