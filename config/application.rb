@@ -32,6 +32,6 @@ module PamelasAdminPanel
   end
 
   Raven.configure do |config|
-    config.dsn = 'https://4b5521520a80400abc4b317181fbd3df:be207b0bf8fd44eb92590a16e14a8f1d@sentry.io/1214909'
+    config.dsn = ENV['SENTRY_KEY']
   end
 end
