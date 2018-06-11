@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
- 
 
   get 'admin-portal', to: 'pages#admin'
   get 'teacher-portal', to: 'pages#teacher'

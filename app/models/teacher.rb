@@ -1,11 +1,10 @@
 class Teacher < ApplicationRecord
   has_many :courses, through: :cohorts
   has_many :students, through: :cohorts
-  belongs_to :cohort
+  belongs_to :cohort, required: false
 
   # extend FriendlyId
   # friendly_id :first_name, use: :slugged
-
 
   validates :age, numericality: {
     less_than: 150, message: "Must be less than 150"}

@@ -25,5 +25,10 @@
   <%= @cohort.teacher.first_name + " " + @cohort.teacher.last_name %>
 </p>
 
+<p>
+  <strong>Student ID:</strong>
+  <%= @cohort.student.first_name + " " + @cohort.student.last_name %>
+</p>
+
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>

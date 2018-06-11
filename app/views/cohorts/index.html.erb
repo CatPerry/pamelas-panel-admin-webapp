@@ -95,6 +95,7 @@
                       <td><%= cohort.start_date.strftime("%m/%d/%Y") %></td>
                       <td><%= cohort.end_date.strftime("%m/%d/%Y") %></td>
                       <td><%= cohort.teacher_id  %></td>
+                      <td><%= cohort.student_id  %></td>
                       <td><%= link_to 'Show', cohort %> | </td>
                       <td><%= link_to 'Edit', edit_cohort_path(cohort) %> | </td>
                       <td><%= link_to 'Delete', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
